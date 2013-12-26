@@ -37,8 +37,11 @@ public class LogReporterClient {
     }
 
     public static void main(String[] args) throws IOException {
-        new LogReporterClient(new File("./testfile"), "username", "127.0.0.1", 8003).start();
-
+        String username = "unkown";
+        if (args.length > 0) {
+                username = args[0];
+        }
+        new LogReporterClient(new File("./testfile"), username, "127.0.0.1", 8003).start();
     }
 
     public void start() throws IOException {
